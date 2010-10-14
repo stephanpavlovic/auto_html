@@ -2,7 +2,7 @@ require 'rubygems'
 gem 'soundcloud-ruby-api-wrapper'
 require 'soundcloud'
 
-AutoHtml.add_filter(:soundcloud).with(:width => 500, :height => 81) do |text,options|
+AutoHtml.add_filter(:soundcloud).with(:width => 500, :height => 81) do |text, options|
   resource = text.match('(soundcloud\.com\/.+\/\w+)').to_s.split("/").last
   sc_client = Soundcloud.register({:consumer_key => 'N8JIR8pzRWZ749BFhb6xg'})
   track = sc_client.Track.find(:first,:params => {"q" => resource})
