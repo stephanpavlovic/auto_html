@@ -4,6 +4,7 @@ require 'soundcloud'
 
 AutoHtml.add_filter(:soundcloud).with(:width => 500, :height => 81) do |text,options|
   text.gsub(/http:\/\/soundcloud\.com.*\/(.+)\/(.+)_*/) do
+    track_id = nil
     user_url = $1
     track_url = $2
     sc_client = Soundcloud.register({:consumer_key => 'N8JIR8pzRWZ749BFhb6xg'})
